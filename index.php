@@ -12,6 +12,8 @@ function get_date(){
 }
 
 get_date();
+
+echo "<p>start page</p>";
 ?>
 <hr noshade width =75% align=left>
 </body>
