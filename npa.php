@@ -1,16 +1,14 @@
 <?php
 include 'inc/func.php'
-?>
-<html>
-<head>
-<title>File tree</title>
-</head>
-<body>
-<h2>Нормативно-правовые акты</h2>
-<hr noshade width = 35% align = left>
-<?php 
+include 'inc/page_struct.php'
+$pageName = "Documents";
+$pageCon = "Documents of ACR";
+
+showHead($pageName, $pageCon);
+
 showTree(myfiles, " ");
+
+showFoot();
 ?>
 
-</body>
-</html>
+
