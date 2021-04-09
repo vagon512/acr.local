@@ -1,4 +1,6 @@
 <?php
+
+//show resutl
 include 'vendor/autoload.php';
 
 include 'inc/func.php';
