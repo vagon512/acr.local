@@ -11,7 +11,7 @@ function showTree($folder, $space){
         echo $space.$file."<br />";
         showTree($f0, $space.'&nbsp;&nbsp;');
       }
-      else echo $space.$file."<br />";
+      else echo $space."<a href=result.php?file=".$file."&dir=".$folder.">".$file."</a><br />";
   }
  }
 
