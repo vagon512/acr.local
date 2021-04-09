@@ -6,6 +6,7 @@ echo "
 <html>
 <head>
 <title>".$pageName."</title>
+<link rel=\"stylesheet\" href=\"style/style.css\"
 </head>
 <body>
 <h2>".$pageCon."</h2>";
