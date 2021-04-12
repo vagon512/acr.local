@@ -5,15 +5,18 @@
 function showTree($folder, $space){
   $files = scandir($folder);
   foreach($files as $file){
+//    $ext = pathinfo($file, PATHINFO_EXTENSION);
     if(($file == '.') || ($file == '..')) continue;
       $f0 = $folder.'/'.$file;
-      if(is_dir($f0)){
+      $ext = pathinfo($file, PATHINFO_EXTENSION);
+      if(is_dir($f0) and $file != "lost+found"){
         echo $space.$file."<br />";
-        showTree($f0, $space.'&nbsp;&nbsp;');
+        showTree($f0, $space.'==');
       }
-      else echo $space."<a href=result.php?file=".$file."&dir=".$folder.">".$file."</a><br />";
+      else if($ext == "pdf"){
+       echo $space."<a href=result.php?file=".$file."&dir=".$folder.">".$file."</a><br />";
+     }
   }
  }
-
 
 ?>

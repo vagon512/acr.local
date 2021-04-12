@@ -12,7 +12,7 @@ $dirname = $_GET["dir"];
 showHead($pageName, $pageCon);
 $filename=$dirname."/".$fname;
 //showTree('myfiles', " ");
-
+echo $filename;
 //pdf parse
   $parser = new \Smalot\PdfParser\Parser();
 

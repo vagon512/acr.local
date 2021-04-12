@@ -2,9 +2,29 @@ body{
   margin: 50px;
 }
 
-p{
+.my_p{
   text-indent: 20px;
   margin: 50px;
   padding: 15px;
   width: 50%;
+  border-style: solid;
+  border-color: red;
  }
+
+#brd{
+   margin: 10px;
+   padding: 10px;
+   border-style: solid;
+   border-color: #fcfcfc;
+   border-width: medium;   
+  }
+
+   #help {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 160px; /* Положение элемента от левого края */
+    top: 50px; /* Положение от верхнего края */
+    width: 225px; /* Ширина блока */
+    padding: 5px; /* Поля вокруг текста */
+    background: #f0f0f0; /* Цвет фона */ 
+   }
+  
