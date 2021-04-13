@@ -11,20 +11,21 @@ body{
   border-color: red;
  }
 
-#brd{
-   margin: 10px;
-   padding: 10px;
-   border-style: solid;
-   border-color: #fcfcfc;
-   border-width: medium;   
-  }
+.my_ul{
+  list-style-type: none;
+}
 
-   #help {
-    position: absolute; /* Абсолютное позиционирование */
-    left: 160px; /* Положение элемента от левого края */
-    top: 50px; /* Положение от верхнего края */
-    width: 225px; /* Ширина блока */
-    padding: 5px; /* Поля вокруг текста */
-    background: #f0f0f0; /* Цвет фона */ 
-   }
-  
+.my_ul li{
+  margin: 5px;
+  padding:3px;
+  width: 50px;
+  border-width: 1px;
+  border-color: red;
+  border-style: solid;
+  background-color:orange;
+}
+
+.my_ul li:hover{
+  width: 75px;
+  background-color: green;
+}
