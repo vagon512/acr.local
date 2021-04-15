@@ -1,11 +1,8 @@
 <?php
-include 'inc/page_struct.php';
-$pageName = "Main";
-$pageCon = "Welcome";
-showHead($pageName, $pageCon);
+require_once( 'inc/page_struct.php' );
+$page = new PageStruct("Главная", "Нормативно-правовые акты администрации Цимляснкого района");
 
-echo "<p id=\"brd\">l;asjdfjsdalfjsl;jf;lsad</p>";
+$page->head();
 
-
-showFoot();
+$page->foot();
 ?>

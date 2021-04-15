@@ -1,12 +1,11 @@
 <?php
 include 'vendor/autoload.php';
 
-include 'inc/func.php';
-include 'inc/page_struct.php';
-$pageName = "Documents";
-$pageCon = "Documents of ACR";
+require_once( 'inc/func.php' );
+require_once( 'inc/page_struct.php' );
+$page = new PageStruct("Постановления", "Постановления");
 $dirName = "/mnt/npa";
-showHead($pageName, $pageCon);
+$page->head();
 //$dir = "/mnt/npa";
 if (!$_GET["dir"]){
 // echo "<div class=\"my_p\">hasdfsadfsadfsadfdsafsadfello</div>";
@@ -29,7 +28,7 @@ else{
   showTree($dir, "==");
 }
 
-showFoot();
+$page->foot();
 ?>
 
 
