@@ -3,13 +3,16 @@
 //show resutl
 include 'vendor/autoload.php';
 
-include 'inc/func.php';
-include 'inc/page_struct.php';
-$pageName = "Documents";
+require_once( 'inc/func.php' );
+require_once( 'inc/page_struct.php' );
 $pageCon = "Documents of ACR";
 $fname = $_GET["file"];
 $dirname = $_GET["dir"];
-showHead($pageName, $pageCon);
+
+$page = new PageStruct($fname, $pageCon);
+
+$page->head();
+
 $filename=$dirname."/".$fname;
 //showTree('myfiles', " ");
 echo $filename;
@@ -22,6 +25,17 @@ echo $filename;
   $text = substr($text, $num);
   $text_result=explode(" ", $text);
   $new_text=array();
+
+
+//print($text);
+preg_match('/«([^"]+)»/', $text, $p);
+echo "<br>";
+$docName = explode("»",$p[1]);
+echo $docName[0];
+//print_r($docName);
+//echo $docName;
+// $docName = explode("»", $docName);
+
 
 for($i=0; $i<=sizeof($text_result); $i++){
   if(strlen($text_result[$i]) != 0 and $text_result[$i] != "\n" and $text_result[$i] != "\t" 
@@ -49,8 +63,7 @@ for($i=0; $i<=sizeof($new_text);$i++){
 
 //echo bin2hex(" ");
 
-
-showFoot();
+$page->foot();
 ?>
 
 
