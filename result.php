@@ -14,8 +14,12 @@ $page = new PageStruct($fname, $pageCon);
 $page->head();
 
 $filename=$dirname."/".$fname;
+$size = formatFileSize($filename);
 //showTree('myfiles', " ");
+echo "<div>";
 echo $filename;
+echo " -- "."<a href = $filename target = blank>Скачать документ</a>";
+echo "</div>";
 //pdf parse
   $parser = new \Smalot\PdfParser\Parser();
 
@@ -31,11 +35,21 @@ echo $filename;
 preg_match('/«([^"]+)»/', $text, $p);
 echo "<br>";
 $docName = explode("»",$p[1]);
-echo $docName[0];
+
+echo "<table>
+        <tr>
+          <td>краткое содержание</td>
+          <td>$docName[0]</td>
+        <tr>
+          <td>Размер файла</td>
+          <td>$size</td>
+        </tr>
+      </table>";
 //print_r($docName);
 //echo $docName;
 // $docName = explode("»", $docName);
 
+$pattern = '#^[\s]*[0-9]*[.]+$#';
 
 for($i=0; $i<=sizeof($text_result); $i++){
   if(strlen($text_result[$i]) != 0 and $text_result[$i] != "\n" and $text_result[$i] != "\t" 
@@ -47,21 +61,19 @@ for($i=0; $i<=sizeof($text_result); $i++){
 $j=0;
 echo "<p class=my_p>";
 for($i=0; $i<=sizeof($new_text);$i++){
-  if($j==30){
-    echo "<br>";
-    $j=0;
-  }
-  $j++;
-  if(strpos($new_text[$i], "\t")>0){
+  if(strpos($new_text[$i], "\t") !== false || 
+       strpos($new_text[$i], " ") !== false){
     $newText = str_replace("\t", "", $new_text[$i]); 
     //echo $newText."!@!@!@<br>";
     $new_text[$i] = $newText;
   }
+  //развивка на пункты
+  if (preg_match($pattern, $new_text[$i])) {
+    echo "<br>";
+  }
   echo $new_text[$i]." ";
 }
   echo "</p>";
-
-//echo bin2hex(" ");
 
 $page->foot();
 ?>

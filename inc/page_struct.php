@@ -18,7 +18,21 @@ class PageStruct{
         <link rel=\"stylesheet\" href=\"style/style.css\"
       </head>
       <body>
-      <h2>{$this->con}</h2>";
+      <div class=main>
+        <h2>{$this->con}</h2>
+        <ul class = my_ul>
+         <li>
+           <a href=index.php>Главная</a>
+         </li>
+         <li>
+           <a href=npa.php?d=post&con=Постановления>Постановления</a>
+         </li>
+         <li>
+           <a href=npa.php?d=resh&con=Решения>Решения</a>
+         </li>
+        </ul>
+        <hr noshade>
+      </div>";
   }
 
   public function foot(){
